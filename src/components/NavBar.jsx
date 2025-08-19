@@ -1,18 +1,23 @@
+
+
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 const NavBar = ({ cartCount }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary px-3">
-      <a className="navbar-brand" href="#">Club del Ciclomotor</a>
+      <Link className="navbar-brand" to="/">Club del Ciclomotor</Link>
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <li className="nav-item"><a className="nav-link" href="#">Inicio</a></li>
-          <li className="nav-item"><a className="nav-link" href="#">Repuestos Garelli</a></li>
-          <li className="nav-item"><a className="nav-link" href="#">Repuestos Zanella</a></li>
+          <li className="nav-item"><Link className="nav-link" to="/">Inicio</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/category/escape">Repuestos Garelli</Link></li>
+          <li className="nav-item"><Link className="nav-link" to="/category/motor">Repuestos Zanella</Link></li>
         </ul>
       </div>
       <div className="d-flex">
-        <CartWidget cartCount={cartCount} />
+        <Link to="/cart">
+          <CartWidget cartCount={cartCount} />
+        </Link>
       </div>
     </nav>
   );
